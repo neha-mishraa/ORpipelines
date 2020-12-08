@@ -5,24 +5,26 @@ resources:
       key: value
       foo: bar
 pipelines:
-  - name: testJenkins
+  - name: testJenkinsOR
     steps:
       - name: bashStep
         type: Bash 
-        outputResources:
-          - name: valueStore
+#         outputResources:
+#           - name: valueStore
+        configuration:
+          inputResources:
+            - name: valueStore
         execution:
           onStart:
             - echo "executing onStart"
-          #onExecute:
-           # - write_output valueStore key:value
       - name: jenkinsStep
         type: Jenkins
         configuration:
-          inputSteps:
-            - name: bashStep
-          inputResources:
+          outputResources:
             - name: valueStore
           jenkinsJobName: testPipeline
           integrations:
             - name: jenkins
+        execution:
+          onSuccess:
+            - write_output valueStore "foo=bar"
