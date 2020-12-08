@@ -25,6 +25,6 @@ pipelines:
           jenkinsJobName: testPipeline
           integrations:
             - name: jenkins
-        execution:
-          onSuccess:
-            - write_output valueStore "foo=bar"
+#         execution:
+#           onSuccess:
+#             - write_output valueStore "foo=bar"
