@@ -12,6 +12,6 @@ pipelines:
         configuration:
           outputResources:
             - name: valueStore
-          jenkinsJobName: testPipeline
+          jenkinsJobName: testPipelineOR
           integrations:
             - name: jenkins
