@@ -1,1 +1,15 @@
-
+resources:
+  - name: valueStore
+    type: PropertyBag
+    configuration:
+      key: value
+      foo: bar
+pipelines:
+  - name: jenkinsStep
+    type: Jenkins
+    configuration:
+      outputResources:
+        - name: valueStore
+      jenkinsJobName: testPipeline
+      integrations:
+        - name: jenkins
