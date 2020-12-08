@@ -1,0 +1,24 @@
+resources:
+  - name: valueStore
+    type: PropertyBag
+    configuration:
+      key: value
+pipelines:
+  - name: testJenkinsOR
+    steps:
+      - name: bashStep
+        type: Bash 
+        configuration:
+          inputResources:
+            - name: valueStore
+        execution:
+          onStart:
+            - echo "executing onStart"
+      - name: jenkinsStep
+        type: Jenkins
+        configuration:
+          outputResources:
+            - name: valueStore
+          jenkinsJobName: testPipeline
+          integrations:
+            - name: jenkins
