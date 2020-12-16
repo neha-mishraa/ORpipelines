@@ -22,4 +22,4 @@ pipelines:
             - name: valueStore
           jenkinsJobName: testPipeline
           integrations:
-            - name: jenkins
+            - name: S_B_Jenkins
