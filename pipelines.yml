@@ -1,0 +1,10 @@
+pipelines:
+  - name: pipeline_S_PS_2
+    steps:
+      - name: S_PS_2
+        type: PowerShell
+        configuration:
+          nodePool: win_2019_2
+        execution:
+          onStart:
+            - echo "hello"
