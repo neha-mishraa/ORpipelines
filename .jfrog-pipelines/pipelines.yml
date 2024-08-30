@@ -37,6 +37,9 @@ pipelines:
         execution:
           onStart:
             - replace_envs ${res_S_HelmPublish_5933_029_GitRepo_resourcePath}/tests/helmCharts/myChart/Chart.yaml
+            - helm3 version
+            - helm version
+            
       - name: S_HelmPublish_5933_029_2
         type: Bash
         configuration:
