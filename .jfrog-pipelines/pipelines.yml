@@ -25,6 +25,7 @@ pipelines:
       - name: S_HelmPublish_5933_029_1
         type: HelmPublish
         configuration:
+          helmVersion: 3
           chartPath: "./tests/helmCharts/myChart"
           flags: "--version ${CHART_VERSION}"
           inputResources:
